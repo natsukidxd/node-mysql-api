@@ -14,7 +14,7 @@ export default function model(sequelize: any) {
         },
         isActive: {
             type: DataTypes.VIRTUAL,
-            get() { return this.revoked && !this.isExpired; }
+            get() { return !this.revoked && !this.isExpired; }
         }
     };
     const options = { timestamps: false };
